@@ -18,7 +18,7 @@
 ## Installation
 https://github.com/mdukeshire/Weather-Dashboard
 
-
+https://mdukeshire.github.io/Weather-Dashboard/
 
 ## Usage
      ```md
