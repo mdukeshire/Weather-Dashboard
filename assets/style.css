@@ -1,0 +1,26 @@
+.navbar-brand {
+    font-size: 36px;
+    background-color: rgba(17, 84, 240, 0.822);
+
+}
+body {
+    background-color: black;
+    color: whitesmoke;
+}
+.search-header {
+    color: black;
+}
+
+.search-header {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.city-name {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.forecast-date {
+    font-size: 20px;
+}
