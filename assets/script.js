@@ -1,12 +1,12 @@
 function initPage() {
     const inputEl = document.getElementById("city-input");
     const searchEl = document.getElementById("search-button");
-    const nameEl = document.getElementById("city-name");
-    const currentPicEl = document.getElementById("current-pic");
-    const currentTempEl = document.getElementById("temperature");
-    const currentHumidityEl = document.getElementById("humidity");4
-    const currentWindEl = document.getElementById("wind-speed");
-    const currentUVEl = document.getElementById("UV-index");
+    const cityNameEl = document.getElementById("city-name");
+    const weatherIconEl = document.getElementById("weather-icon");
+    const tempEl = document.getElementById("temperature");
+    const humidityEl = document.getElementById("humidity");4
+    const windEl = document.getElementById("wind-speed");
+    const UVEl = document.getElementById("UV-index");
     const historyEl = document.getElementById("history");
     let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
     console.log(searchHistory);
@@ -26,13 +26,13 @@ function initPage() {
             const day = currentDate.getDate();
             const month = currentDate.getMonth() + 1;
             const year = currentDate.getFullYear();
-            nameEl.innerHTML = response.data.name + " (" + month + "/" + day + "/" + year + ") ";
+            cityNameEl.innerHTML = response.data.name + " (" + month + "/" + day + "/" + year + ") ";
             let weatherPic = response.data.weather[0].icon;
-            currentPicEl.setAttribute("src","https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
-            currentPicEl.setAttribute("alt",response.data.weather[0].description);
-            currentTempEl.innerHTML = "Temperature: " + temp(response.data.main.temp) + " &#176F";
-            currentHumidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
-            currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
+            weatherIconEl.setAttribute("src","https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
+            weatherIconEl.setAttribute("alt",response.data.weather[0].description);
+            tempEl.innerHTML = "Temperature: " + temp(response.data.main.temp) + " &#176F";
+            humidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
+            windEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
         let lat = response.data.coord.lat;
         let lon = response.data.coord.lon;
         let UVQueryURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&cnt=1";
@@ -41,8 +41,8 @@ function initPage() {
             let UVIndex = document.createElement("span");
             UVIndex.setAttribute("class","badge badge-danger");
             UVIndex.innerHTML = response.data[0].value;
-            currentUVEl.innerHTML = "UV Index: ";
-            currentUVEl.append(UVIndex);
+            UVEl.innerHTML = "UV Index: ";
+            UVEl.append(UVIndex);
         });
 
         let cityID = response.data.id;
